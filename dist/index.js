@@ -4236,6 +4236,7 @@ async function run() {
     // process.chdir('json-tests')
     // await exec.exec(`pip install spectacles`)
     // await exec.exec(`npm test`)
+    process.chdir('spectacles-tests')
     await exec.exec(`npm install`)
     
     await exec.exec(`spectacles lookml \
