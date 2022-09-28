@@ -1,5 +1,5 @@
-name: 'Looker Marketplace JSON Tests'
-description: 'Tests to verify Looker Marketplace Project assets'
+name: 'Looker Marketplace Spectacles Tests'
+description: 'Spectacles Tests to verify Looker Marketplace Project Block assets'
 runs:
   using: 'node16'
   main: 'dist/index.js'
