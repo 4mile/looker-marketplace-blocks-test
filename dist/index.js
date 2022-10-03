@@ -22213,7 +22213,7 @@ const LOOKER_BASE_URL = process.env.LOOKER_BASE_URL //process.env.LOOKER_BASE_UR
 const LOOKER_CLIENT_ID = process.env.LOOKER_CLIENT_ID //process.env.LOOKER_CLIENT_ID; - Persist in GitHub secrets;
 const LOOKER_CLIENT_SECRET = process.env.LOOKER_CLIENT_SECRET //process.env.LOOKER_CLIENT_SECRET; - Persist in GitHub secrets;
 // const project = '4_mile_demonstrations'
-process.chdir('../')
+// process.chdir('../')
 
 async function run() {
   // process.chdir('spectacles-tests')
