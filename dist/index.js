@@ -22227,8 +22227,8 @@ async function run() {
 
   for (let i=0; i < models.length; i++ ) {
     let modelFolder;
-    if (fs.existsSync(`${models[i].name}.model.lkml`)) modelFolder = '' 
-    if (fs.existsSync(`models/${models[i].name}.model.lkml`)) modelFolder ='models/'
+    if (fs.existsSync(`${cwd}/main/${models[i].name}.model.lkml`)) modelFolder = '' 
+    if (fs.existsSync(`${cwd}/main/models/${models[i].name}.model.lkml`)) modelFolder ='models/'
 
     const model = await parseLkml(`${modelFolder}${models[i].name}.model.lkml`)
     const includeType = typeof model.model[`${models[i].name}`].include
