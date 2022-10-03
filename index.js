@@ -70,12 +70,12 @@ async function run() {
       --project ${project} \
       --explores ${explores}`
       )
-    // await exec.exec(`spectacles assert \
-    // --base-url ${LOOKER_BASE_URL} \
-    // --client-id ${LOOKER_CLIENT_ID} \
-    // --client-secret ${LOOKER_CLIENT_SECRET} \
-    // --project ${project}`
-    // )
+    await exec.exec(`spectacles assert \
+    --base-url ${LOOKER_BASE_URL} \
+    --client-id ${LOOKER_CLIENT_ID} \
+    --client-secret ${LOOKER_CLIENT_SECRET} \
+    --project ${project}`
+    )
   } catch (error) {
     core.setFailed(error.message);
   }
