@@ -22213,10 +22213,11 @@ const LOOKER_BASE_URL = process.env.LOOKER_BASE_URL //process.env.LOOKER_BASE_UR
 const LOOKER_CLIENT_ID = process.env.LOOKER_CLIENT_ID //process.env.LOOKER_CLIENT_ID; - Persist in GitHub secrets;
 const LOOKER_CLIENT_SECRET = process.env.LOOKER_CLIENT_SECRET //process.env.LOOKER_CLIENT_SECRET; - Persist in GitHub secrets;
 // const project = '4_mile_demonstrations'
+process.chdir('../')
 
 async function run() {
   // process.chdir('spectacles-tests')
-  // process.chdir('../')
+
   const cwd = process.cwd();
   const marketplace = parseMarketplace();
   const resultManifest = await parseLkml('manifest.lkml');
@@ -22288,7 +22289,7 @@ async function run() {
 async function parseLkml( file ) {
   const cwd = process.cwd(); 
   resultManifest = await lookmlParser.parseFiles({
-    source:  `${cwd}/${file}`,
+    source:  `${cwd}/main/${file}`,
     fileOutput: "by-type",
     globOptions: {},
     readFileOptions: {encoding:"utf-8"},
@@ -22300,7 +22301,7 @@ async function parseLkml( file ) {
 
 function parseMarketplace() {
   const cwd = process.cwd(); 
-  const marketplaceRaw = fs.readFileSync(`${cwd}/marketplace.json`, 'utf8'); 
+  const marketplaceRaw = fs.readFileSync(`${cwd}/main/marketplace.json`, 'utf8'); 
   try {
     var marketplace = JSON.parse(marketplaceRaw)
   } catch(e) {
