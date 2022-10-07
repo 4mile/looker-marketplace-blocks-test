@@ -37,10 +37,14 @@ async function run() {
     modinc?.forEach( item => {
       exploresArr.push(`${models[i].name}/${item}`)
     })
-    const inlineExp = Object.keys(model.model[`${models[i].name}`].explore).map( item => {
-      return `${models[i].name}/${item}` 
-    })
-    exploresArr = [...exploresArr, ...inlineExp]
+
+    if (model.model[`${models[i].name}`].explore) {
+      const inlineExp = Object.keys(model.model[`${models[i].name}`].explore).map( item => {
+        return `${models[i].name}/${item}` 
+      })
+      exploresArr = [...exploresArr, ...inlineExp]
+    }
+
   }
   const explores = exploresArr.join(' ')
   try {
