@@ -22212,6 +22212,7 @@ __nccwpck_require__(9585).config()
 const LOOKER_BASE_URL = process.env.LOOKER_BASE_URL //process.env.LOOKER_BASE_URL - Persist in GitHub secrets;
 const LOOKER_CLIENT_ID = process.env.LOOKER_CLIENT_ID //process.env.LOOKER_CLIENT_ID; - Persist in GitHub secrets;
 const LOOKER_CLIENT_SECRET = process.env.LOOKER_CLIENT_SECRET //process.env.LOOKER_CLIENT_SECRET; - Persist in GitHub secrets;
+const LOOKER_PROJECT_NAME = process.env.LOOKER_PROJECT_NAME //process.env.LOOKER_CLIENT_SECRET; - Persist in GitHub secrets;
 // const project = '4_mile_demonstrations'
 // process.chdir('../')
 
@@ -22221,7 +22222,7 @@ async function run() {
   const cwd = process.cwd();
   const marketplace = parseMarketplace();
   const resultManifest = await parseLkml('manifest.lkml');
-  const project = resultManifest.manifest.project_name
+  // const project = resultManifest.manifest.project_name
   const models = marketplace.models
   let exploresArr = []
 
@@ -22262,28 +22263,28 @@ async function run() {
       --base-url ${LOOKER_BASE_URL} \
       --client-id ${LOOKER_CLIENT_ID} \
       --client-secret ${LOOKER_CLIENT_SECRET} \
-      --project ${project} \
+      --project ${LOOKER_PROJECT_NAME} \
       -v`
       )
     await exec.exec(`spectacles content \
       --base-url ${LOOKER_BASE_URL} \
       --client-id ${LOOKER_CLIENT_ID} \
       --client-secret ${LOOKER_CLIENT_SECRET} \
-      --project ${project}`
+      --project ${LOOKER_PROJECT_NAME}`
       )
     await exec.exec(`spectacles sql \
       --base-url ${LOOKER_BASE_URL} \
       --client-id ${LOOKER_CLIENT_ID} \
       --client-secret ${LOOKER_CLIENT_SECRET} \
       --concurrency 20 \
-      --project ${project} \
+      --project ${LOOKER_PROJECT_NAME} \
       --explores ${explores}`
       )
     await exec.exec(`spectacles assert \
     --base-url ${LOOKER_BASE_URL} \
     --client-id ${LOOKER_CLIENT_ID} \
     --client-secret ${LOOKER_CLIENT_SECRET} \
-    --project ${project}`
+    --project ${LOOKER_PROJECT_NAME}`
     )
   } catch (error) {
     core.setFailed(error.message);
