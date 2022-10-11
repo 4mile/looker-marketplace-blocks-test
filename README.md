@@ -25,10 +25,11 @@ This repository contains information and tests meant to streamline the validatio
 
 4. On GitHub Actions tab, see the CI execution flow and results of tests.
 
-5. On your Looker target repo (repo to be tested), you must add the following GitHub Secrets to tell the Action how to access your Looker instance:
+5. On your Looker target repo (repo to be tested), you must add the following GitHub Secrets to tell the Action how to access your Looker instance as well as the project to test:
     - LOOKER_BASE_URL: 'https://4mile.looker.com'
     - LOOKER_CLIENT_ID: Looker Client ID
     - LOOKER_CLIENT_SECRET: Looker Client Secret
+    - LOOKER_PROJECT_NAME: The project name on Looker instance
 
 6. Note: please ensure GitHub Actions are enabled on the repository to be tested by going to the settings of the repository and enabling permissions.
 
