@@ -2,17 +2,13 @@ const core = require('@actions/core');
 const exec = require('@actions/exec');
 const fs = require('fs')
 const lookmlParser = require('lookml-parser')
-// const { exec, execSync ,spawn} = require("child_process");
 require('dotenv').config()
 const LOOKER_BASE_URL = process.env.LOOKER_BASE_URL //process.env.LOOKER_BASE_URL - Persist in GitHub secrets;
 const LOOKER_CLIENT_ID = process.env.LOOKER_CLIENT_ID //process.env.LOOKER_CLIENT_ID; - Persist in GitHub secrets;
 const LOOKER_CLIENT_SECRET = process.env.LOOKER_CLIENT_SECRET //process.env.LOOKER_CLIENT_SECRET; - Persist in GitHub secrets;
 const LOOKER_PROJECT_NAME = process.env.LOOKER_PROJECT_NAME //process.env.LOOKER_CLIENT_SECRET; - Persist in GitHub secrets;
-// const project = '4_mile_demonstrations'
-// process.chdir('../')
 
 async function run() {
-  // process.chdir('spectacles-tests')
 
   const cwd = process.cwd();
   const marketplace = parseMarketplace();
@@ -45,15 +41,9 @@ async function run() {
       })
       exploresArr = [...exploresArr, ...inlineExp]
     }
-
   }
   const explores = exploresArr.join(' ')
-  try {
-    // process.chdir('json-tests')
-    // await exec.exec(`pip install spectacles`)
-    // await exec.exec(`npm test`)
-    // await exec.exec(`npm install`)
-    
+  try {    
     await exec.exec(`spectacles lookml \
       --base-url ${LOOKER_BASE_URL} \
       --client-id ${LOOKER_CLIENT_ID} \

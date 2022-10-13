@@ -22207,17 +22207,13 @@ const core = __nccwpck_require__(7931);
 const exec = __nccwpck_require__(7958);
 const fs = __nccwpck_require__(7147)
 const lookmlParser = __nccwpck_require__(4594)
-// const { exec, execSync ,spawn} = require("child_process");
 __nccwpck_require__(9585).config()
 const LOOKER_BASE_URL = process.env.LOOKER_BASE_URL //process.env.LOOKER_BASE_URL - Persist in GitHub secrets;
 const LOOKER_CLIENT_ID = process.env.LOOKER_CLIENT_ID //process.env.LOOKER_CLIENT_ID; - Persist in GitHub secrets;
 const LOOKER_CLIENT_SECRET = process.env.LOOKER_CLIENT_SECRET //process.env.LOOKER_CLIENT_SECRET; - Persist in GitHub secrets;
 const LOOKER_PROJECT_NAME = process.env.LOOKER_PROJECT_NAME //process.env.LOOKER_CLIENT_SECRET; - Persist in GitHub secrets;
-// const project = '4_mile_demonstrations'
-// process.chdir('../')
 
 async function run() {
-  // process.chdir('spectacles-tests')
 
   const cwd = process.cwd();
   const marketplace = parseMarketplace();
@@ -22250,15 +22246,9 @@ async function run() {
       })
       exploresArr = [...exploresArr, ...inlineExp]
     }
-
   }
   const explores = exploresArr.join(' ')
-  try {
-    // process.chdir('json-tests')
-    // await exec.exec(`pip install spectacles`)
-    // await exec.exec(`npm test`)
-    // await exec.exec(`npm install`)
-    
+  try {    
     await exec.exec(`spectacles lookml \
       --base-url ${LOOKER_BASE_URL} \
       --client-id ${LOOKER_CLIENT_ID} \
