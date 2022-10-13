@@ -1,20 +1,10 @@
-name: My Spectacles Test Action
+name: Looker Marketplace Spectacles Blocks Tests
 
-# on:
-#   push:
-#     branches: [ main ]
-#   pull_request:
-#     branches: [ main]
-# jobs:
-#   build:
-
-#     runs-on: ubuntu-latest
-  
-#     steps:
-#       - name: ActionCalvin
-#         uses: calvincheng919/actionCalvin@v1.0.0-alpha
-
-on: [push]
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
 
 jobs:
   test_action_job:
