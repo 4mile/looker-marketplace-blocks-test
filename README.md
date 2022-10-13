@@ -45,3 +45,27 @@ ncc build index.js -o dist --source-map --license licenses.txt
 ```
 npm install -g @vercel/ncc
 ```
+
+## Important Note
+
+- Hidden dimensions are not automatically ignored in Spectacles tests. 
+- In order to ignore these dimensions in the test, you must ignore them in the dimension definition.
+
+```
+dimension: addresses {
+    sql:
+        -- spectacles: ignore
+        ${TABLE}.addresses ;;
+}
+```
+
+OR
+
+```
+dimension: addresses {
+    sql:
+        -- spectacles: ignore
+        ${TABLE}.addresses ;;
+    tags: ["spectacles: ignore"]
+}
+```
