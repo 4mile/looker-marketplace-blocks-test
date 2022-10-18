@@ -1,6 +1,6 @@
-# Marketplace Automation Test Repo
+# Looker Marketplace Block Testing Action
 
-This repository contains information and tests meant to streamline the validation of Looker Marketplace projects submitted by third party developers of Custom Visualiztions, Blocks and other Looker custom projects. This testing repo uses Spectacles CLI to validate Looker content, models, sql and assertions.
+This Action streamlines the validation of Looker Marketplace projects submitted by third party developers of Custom Blocks by utlizing the Spectacles CLI to validate Looker content, models, sql and assertions.
 
 ## Tools
 
@@ -17,9 +17,9 @@ This repository contains information and tests meant to streamline the validatio
 
 ## Setup
 
-1. Add the folder named `/.github/workflows` to the Looker repo to be tested. This tells GitHub you have a workflow to run.
+1. Add the folder named `/.github/workflows` to the Looker Marketplace repo to be tested. This tells GitHub you have a workflow to run.
 
-2. Upload `spectacles_tests.yml` from this repo to `/.github/workflows` folder of the target Looker repo to be tested. The workflow yml will contain a reference to this action (please verify the latest version)
+2. Upload the workflow config file [`spectacles_tests.yml`](spectacles_tests.yml) to the `/.github/workflows` folder of the target Looker Marketplace repo to be tested. The workflow yml will contain a reference to this action (please verify the latest version)
 
 3. Commit and PR to GitHub.
 
